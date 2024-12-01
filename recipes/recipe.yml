@@ -1,11 +1,11 @@
 # image will be published to ghcr.io/<user>/<name>
-name: template
+name: custom-bluefin
 # description will be included in the image's metadata
 description: This is my personal OS image.
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/silverblue-main
-image-version: 40 # latest is also supported if you want new updates ASAP
+base-image: ghcr.io/ublue-os/bluefin
+image-version: gts # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
@@ -21,6 +21,8 @@ modules:
     install:
       # - micro
       # - starship
+      - webkit2gtk4.0
+      - rhytmbox
     remove:
       # example: removing firefox (in favor of the flatpak)
       # "firefox" is the main package, "firefox-langpacks" is a dependency
@@ -35,6 +37,8 @@ modules:
       # repo-name: flathub
       # repo-title: "Flathub (system-wide)" # Optional; this sets the remote's user-facing name in graphical frontends like GNOME Software
       install:
+        - io.github.zen_browser.zen
+        - org.onlyoffice.desktopeditors
         # - org.mozilla.firefox
         # - org.gnome.Loupe
         # - one.ablaze.floorp//lightning # This is an example of flatpak which has multiple branches in selection (flatpak//branch).
@@ -42,6 +46,7 @@ modules:
       # only normal flatpak applications are (like Floorp Lightning web browser in this example).
       # Installing different branches of the same Flatpak is not supported.
       remove:
+        - org.mozilla.firefox
       # - org.gnome.eog
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
