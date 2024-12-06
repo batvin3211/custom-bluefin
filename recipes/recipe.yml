@@ -22,7 +22,7 @@ modules:
       # - micro
       # - starship
       - webkit2gtk4.0
-      - rhytmbox
+      - rhythmbox
     remove:
       # example: removing firefox (in favor of the flatpak)
       # "firefox" is the main package, "firefox-langpacks" is a dependency
@@ -39,6 +39,7 @@ modules:
       install:
         - io.github.zen_browser.zen
         - org.onlyoffice.desktopeditors
+        - eu.betterbird.Betterbird
         # - org.mozilla.firefox
         # - org.gnome.Loupe
         # - one.ablaze.floorp//lightning # This is an example of flatpak which has multiple branches in selection (flatpak//branch).
@@ -47,6 +48,7 @@ modules:
       # Installing different branches of the same Flatpak is not supported.
       remove:
         - org.mozilla.firefox
+        - org.mozilla.Thunderbird
       # - org.gnome.eog
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
